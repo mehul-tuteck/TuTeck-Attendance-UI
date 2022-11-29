@@ -7,7 +7,8 @@ import * as serviceWorkerRegistration from "./serviceWorkerRegistration";
 import Login from "./components/Login";
 import Scanner from "./components/Scanner";
 import Confirmation from "./components/Confirmation";
-import  "./App.css"
+import "animate.css";
+import "./App.css";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <BrowserRouter>

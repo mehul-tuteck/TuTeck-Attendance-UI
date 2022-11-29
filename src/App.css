@@ -31,7 +31,7 @@ header img {
 
 main {
   height: calc(var(--layout-main-size) - calc(var(--layout-header-size) + var(--layout-header-spacing)) * 2);
-  display: flex;
+  /* display: flex; */
   justify-content: center;
   align-items: center;
 }
@@ -206,4 +206,9 @@ video {
 }
 .loaderSkeleton{
       padding-bottom: calc(var(--layout-main-size) - calc(var(--layout-header-size) + var(--layout-header-spacing)) * 2);
+}
+
+.confirmImg{
+      object-fit: fill;
+        width: 100%;
 }
