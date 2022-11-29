@@ -1,38 +1,209 @@
-.App {
-  text-align: center;
+:root {
+  --layout-header-size: 60px;
+  --layout-header-spacing: 10px;
+  --layout-main-size: 100vh;
+    /* Camera wrapper related configs */
+      --camera-container-height: 40vh;
+      --camera-container-background: #cac8c8;
+      --camera-container-gutter: 13px;
+    
+      /* --camera-film-border */
+      --camera-film-box-size: 30px;
+      --camera-film-border-width: 3px;
+      --camera-film-border-style: solid;
+      --camera-film-color: black;
+    
+      --camera-film-border-space: -13px;
+      --footer-height-size:10vh;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+header {
+  height: var(--layout-header-size);
+  padding: var(--layout-header-spacing) var(--layout-header-spacing);
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
+}
+header img {
+  height:100%;
 }
 
-.App-link {
-  color: #61dafb;
+main {
+  height: calc(var(--layout-main-size) - calc(var(--layout-header-size) + var(--layout-header-spacing)) * 2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+
+.botPol {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  height: 43vh;
+}
+
+.toppol {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 45vh;
+}
+
+.loginWraper {
+  text-align: center;
+  margin: 2vw;
+  padding: 2vw;
+}
+
+.scanerWraper {
+  text-align: center;
+  margin: 2vw;
+  padding: 2vw;
+}
+
+.loginWraper p {
+  font-style: normal;
+  font-weight: 600;
+  font-size: 8vw;
+  color: #1976D2;
+}
+
+.loginWraper button {
+  margin-top: 5vh;
+  padding-left: 10vw;
+  padding-right: 10vw;
+  border-radius: 10vw;
+  margin-bottom: 5vh;
+}
+
+.loginWraper a {
+  text-decoration: none !important;
+}
+
+.scanerWraper p {
+  font-weight: 600;
+  font-size: 16px;
+
+  text-align: center;
+
+  color: #343434;
+}
+
+.scanBtnDiv {
+  position: absolute;
+  right: 0;
+}
+
+.AppCon {
+  font-family: sans-serif;
+  text-align: center;
+  height: 71vh;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+.container {
+  position: relative;
+}
+
+.container {
+  /* height: var(--camera-container-height); */
+  background-color: var(--camera-container-background);
+  margin: var(--camera-container-gutter);
+}
+
+.container .camera-film::before,
+.container .camera-film::after {
+  content: '';
+  position: absolute;
+  height: var(--camera-film-box-size);
+  width: var(--camera-film-box-size);
+  border-color: var(--camera-film-color) !important;
+  border-style: var(--camera-film-border-style) !important;
+}
+
+.container .camera-film.film-left::before {
+  top: var(--camera-film-border-space);
+  left: var(--camera-film-border-space);
+  border-left: var(--camera-film-border-width);
+  border-top: var(--camera-film-border-width);
+  border-bottom: 0px;
+  border-right: 0px;
+}
+
+.container .camera-film.film-left::after {
+  bottom: var(--camera-film-border-space);
+  left: var(--camera-film-border-space);
+  border-left: var(--camera-film-border-width);
+  border-top: 0px;
+  border-bottom: var(--camera-film-border-width);
+  border-right: 0px;
+}
+
+.container .camera-film.film-right::before {
+  top: var(--camera-film-border-space);
+  right: var(--camera-film-border-space);
+  border-left: 0px;
+  border-top: var(--camera-film-border-width);
+  border-bottom: 0px;
+  border-right: var(--camera-film-border-width);
+}
+
+.container .camera-film.film-right::after {
+  bottom: var(--camera-film-border-space);
+  right: var(--camera-film-border-space);
+  border-left: 0px;
+  border-top: 0px;
+  border-bottom: var(--camera-film-border-width);
+  border-right: var(--camera-film-border-width);
+}
+.container video{
+  /* height: var(--camera-container-height) !important; */
+}
+/* Camera feed position and sizings */
+#interactive.viewport,
+#interactive.viewport canvas.drawingBuffer,
+video.drawingBuffer {
+  height: var(--camera-container-height);
+  width: 100%;
+  position: absolute;
+  left: 0;
+}
+
+#interactive.viewport canvas,
+video {
+  height: var(--camera-container-height);
+  width: 100%;
+  object-fit: cover;
+}
+.cartFooter{
+  justify-content: space-evenly;
+  align-items: center !important;
+  
+}
+
+.cartFooterContainer{
+
+      height: var(--footer-height-size);
+
+      position: absolute;
+        width: 100%;
+        bottom: 0;
+        background: #FFFFFF;
+          box-shadow: 0px -1px 12px rgb(0 0 0 / 5%);
+        
+  
+    
+}
+.carttable{
+ /* height: calc(var(--layout-main-size) - calc(var(--layout-header-size) - var(--footer-height-size)));  */
+ height: 80vh;
+ overflow: scroll;
+}
+.loaderSkeleton{
+      padding-bottom: calc(var(--layout-main-size) - calc(var(--layout-header-size) + var(--layout-header-spacing)) * 2);
 }
